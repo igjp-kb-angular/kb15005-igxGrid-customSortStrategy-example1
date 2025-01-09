@@ -1,0 +1,16 @@
+<div class="my_wrapper">
+  <igx-grid #grid1 [data]="data" [autoGenerate]="false" [primaryKey]="'ID'" height="600px">
+    <igx-column field="ID" header="ID" [dataType]="'number'" [sortable]="true"></igx-column>
+
+    <!--
+    Col1には数値もしくは文字列が来るので、dataTypeはstringにしておきます。
+    numberにしてしまうと、数値に変換できない文字列が来たときにigx-gridが表示できなくなってしまうのを避けるためです。
+    sortStrategyでCol1のカスタムソートを設定します。
+    -->
+    <igx-column
+      field="Col1" header="Col1" [dataType]="'string'" [sortable]="true"
+      [sortStrategy]="col1CustomSortingStrategy">
+    </igx-column>
+
+  </igx-grid>
+</div>
